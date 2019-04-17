@@ -1,2 +1,4 @@
 ---
 # tasks file for container-logstash
+- import_tasks: logstash.yml
+  become: true
