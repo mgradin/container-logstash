@@ -10,7 +10,7 @@
 - name: Start logstash container
   docker_container:
     name: logstash 
-    image: logstash:latest
+    image: "logstash:{{ VAR_LOGSTASH_VERSION }}"
     pull: yes
     state: started
     labels:

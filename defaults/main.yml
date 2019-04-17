@@ -1,4 +1,5 @@
 ---
 # defaults file for container-logstash
+VAR_LOGSTASH_VERSION: 7.0.0
 VAR_LOGSTASH_PIPELINE_DIR: /opt/logstash/pipeline
 VAR_LOGSTASH_URL: logstash.example.com
