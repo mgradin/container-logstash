@@ -1,0 +1,27 @@
+---
+- name: Create logstash pipeline directory
+  file: 
+    path: "{{ VAR_LOGSTASH_PIPELINE_DIR }}"
+    recurse: yes
+    state: directory
+    owner: 1000
+    group: 1000
+
+- name: Start logstash container
+  docker_container:
+    name: logstash 
+    image: logstash:latest
+    pull: yes
+    state: started
+    labels:
+      traefik.backend=logstash
+      "traefik.frontend.rule=Host:{{ VAR_LOGSTASH_URL }}"
+      traefik.port=5044
+      traefik.enable=true
+    volumes:
+    - "{{ VAR_LOGSTASH_PIPELIONE_DIR }}:/usr/share/logstash/pipeline/:z"
+    links:
+    - elasticsearch
+    restart_policy: unless-stopped
+
+
