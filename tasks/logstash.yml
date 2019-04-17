@@ -19,7 +19,7 @@
       traefik.port=5044
       traefik.enable=true
     volumes:
-    - "{{ VAR_LOGSTASH_PIPELIONE_DIR }}:/usr/share/logstash/pipeline/:z"
+    - "{{ VAR_LOGSTASH_PIPELINE_DIR }}:/usr/share/logstash/pipeline/:z"
     links:
     - elasticsearch
     restart_policy: unless-stopped
